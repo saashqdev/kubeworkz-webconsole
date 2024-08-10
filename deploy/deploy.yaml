@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webconsole
+  namespace: kubeworkz-system
+  labels:
+    kubeworkz.io/app: kubeworkz-webconsole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      kubeworkz.io/app: kubeworkz-webconsole
+  template:
+    metadata:
+      labels:
+        kubeworkz.io/app: kubeworkz-webconsole
+    spec:
+      containers:
+        - env:
+            - name: JWT_SECRET
+              value: {jwtSecret}
+          name: kubeworkz-webconsole
+          image: hub.c.163.com/kubeworkz/kubeworkz:webconsole-0.0.3
+          ports:
+            - containerPort: 9081

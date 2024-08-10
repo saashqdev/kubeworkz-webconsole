@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webconsole
+  namespace: kubeworkz-system
+spec:
+  type: ClusterIP
+  selector:
+    kubeworkz.io/app: kubeworkz-webconsole
+  ports:
+    - name: http
+      port: 9081
+      targetPort: 9081
