@@ -4,14 +4,14 @@
 
 kubeworkz-webconsole includes two functions mainly:
 
--Real-time interaction between front-end and server
--Real-time interaction between the server and the computing cluster
+- Real-time interaction between front-end and server
+- Real-time interaction between the server and the computing cluster
 
 The front end and the server use the websocket protocol to communicate, and the server and the container in the Kubernetes cluster use the SPDY protocol to communicate.
 
 The overall architecture diagram is as follows:
 
-![架构图](./images/webconsole-architecture-diagram.png)
+![Architecture diagram](./images/webconsole-architecture-diagram.png)
 
 ### Connection Process
 
