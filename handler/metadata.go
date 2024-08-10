@@ -140,5 +140,5 @@ type AuditMsg struct {
 	UserAgent     string    `json:"user_agent,omitempty"`
 	ContainerUser string    `json:"container_user,omitempty"`
 	WebUser       string    `json:"web_user,omitempty"`
-	Platform      string    `json:"platform,omitempty"` // 通过什么平台传入的，如严选SNest\严选Opera或者轻舟页面
+	Platform      string    `json:"platform,omitempty"` // What platform is it transmitted through?
 }

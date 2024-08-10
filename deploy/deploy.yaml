@@ -20,6 +20,6 @@ spec:
             - name: JWT_SECRET
               value: {jwtSecret}
           name: kubeworkz-webconsole
-          image: hub.c.163.com/kubeworkz/kubeworkz:webconsole-0.0.3
+          image: kubeworkz/kubeworkz:webconsole-0.0.3
           ports:
             - containerPort: 9081

@@ -26,7 +26,7 @@ USR_BIN_ARR=(vi vim xargs)
 BIN_ARR=(bash ls rm grep cat less mkdir echo)
 
 if [ ! -d $DIR ]; then
-    ### 无法使用ln后chroot，只能拷贝
+    ### Unable to use ln to chroot, only copy
     mkdir -p $DIR
     mkdir -p $DIR/root/.kube
     mkdir -p $DIR/tmp

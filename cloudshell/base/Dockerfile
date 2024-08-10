@@ -2,7 +2,7 @@
 # Use of this source code is governed by a Apache license
 # that can be found in the LICENSE file.
 
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 MAINTAINER netease
 RUN mkdir -p /var/run/sshd
 RUN apt-get update \

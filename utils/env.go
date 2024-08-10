@@ -19,7 +19,7 @@ package utils
 import "os"
 
 func GetKubeWorkzSvc() string {
-	svc := os.Getenv("KUBECUBE_SVC")
+	svc := os.Getenv("KUBEWORKZ_SVC")
 	if svc != "" {
 		return svc
 	}

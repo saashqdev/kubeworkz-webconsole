@@ -74,7 +74,7 @@ func PodAuthorityVerify(request *restful.Request, response *restful.Response, ch
 func isAuthValid(request *restful.Request) bool {
 	user := utils.GetUserFromReq(request)
 	if user == "" {
-		clog.Error("the user is not exists")
+		clog.Error("the user does not exists")
 		return false
 	}
 	namespace := request.PathParameter(NamespaceKey)
