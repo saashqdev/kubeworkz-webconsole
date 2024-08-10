@@ -11,7 +11,7 @@ The front end and the server use the websocket protocol to communicate, and the 
 
 The overall architecture diagram is as follows:
 
-![架构图](./images/webconsole架构图.png)
+![架构图](./images/webconsole-architecture-diagram.png)
 
 ### Connection Process
 
