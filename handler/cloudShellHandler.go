@@ -40,13 +40,13 @@ func handleCloudShellExec(request *restful.Request, response *restful.Response) 
 	clusterName := request.PathParameter("cluster")
 	clusterInfo, err := GetClusterInfoByName(clusterName)
 	if err != nil {
-		clog.Warn("get cluster failed. Error msg: " + err.Error())
+		clog.Warn("Get cluster failed. Error msg: " + err.Error())
 		errdef.HandleInternalError(response, err)
 		return
 	}
 	ctrlCluster, err := GetPivotCluster()
 	if err != nil {
-		clog.Error("get pivot cluster failed. Error msg: " + err.Error())
+		clog.Error("Get pivot cluster failed. Error msg: " + err.Error())
 		errdef.HandleInternalError(response, err)
 		return
 	}
@@ -60,7 +60,7 @@ func handleCloudShellExec(request *restful.Request, response *restful.Response) 
 	if !ok {
 		NCfg, err := getControlCluster()
 		if err != nil {
-			clog.Error("fail to fetch control cluster, msg: %v", err)
+			clog.Error("Failed to fetch control cluster, msg: %v", err)
 			errdef.HandleInternalErrorByCode(response, errdef.ControlClusterNotFound)
 			return
 		}
@@ -72,7 +72,7 @@ func handleCloudShellExec(request *restful.Request, response *restful.Response) 
 
 	controlRestClient, err := rest.RESTClientFor(cfg)
 	if err != nil {
-		clog.Info("Fail to new rest client from control pane cluster kube config data, from cfg: %#v", cfg)
+		clog.Info("Failed to create new rest client from control pane cluster kube config data, from cfg: %#v", cfg)
 		errdef.HandleInternalErrorByCode(response, errdef.InternalServerError)
 		return
 	}
@@ -159,18 +159,18 @@ func isPodRunning(pod v12.Pod) bool {
 func getControlCluster() (cfg *rest.Config, err error) {
 	controlCluster, err := GetPivotCluster()
 	if err != nil {
-		clog.Error("get control cluster err")
+		clog.Error("Get control cluster err")
 		return nil, errdef.ControlClusterNotFound
 	}
 
 	tmpCfg := initKubeConf(string(controlCluster.Spec.KubeConfig))
 	if tmpCfg == nil {
-		clog.Info("fail to init cfg for control cluster [%s], config: %v", controlCluster.GetName(), string(controlCluster.Spec.KubeConfig))
+		clog.Info("Failed to init cfg for control cluster [%s], config: %v", controlCluster.GetName(), string(controlCluster.Spec.KubeConfig))
 	}
 
 	controlRestClient, err := rest.RESTClientFor(tmpCfg)
 	if err != nil {
-		msg := fmt.Sprintf("Fail to new rest client from control cluster [%s] with  kube config data, from cfg: %#v", controlCluster.GetName(), tmpCfg)
+		msg := fmt.Sprintf("Failed to create new rest client from control cluster [%s] with  kubeconfig data, from cfg: %#v", controlCluster.GetName(), tmpCfg)
 		clog.Info(msg)
 		return nil, errors.New(msg)
 	}
@@ -178,7 +178,7 @@ func getControlCluster() (cfg *rest.Config, err error) {
 	pods := v12.PodList{}
 	err = controlRestClient.Get().Resource("pods").Namespace(CloudShellNs).Param("labelSelector", CloudShellLabelKey+"="+CloudShellDpName).Do(context.Background()).Into(&pods)
 	if err != nil {
-		msg := fmt.Sprintf("Fetch pods of cloud shell fail in control cluster [%s] fail, err msg: %v", controlCluster.GetName(), err)
+		msg := fmt.Sprintf("Fetch pods of cloud shell failed in control cluster [%s] fail, err msg: %v", controlCluster.GetName(), err)
 		clog.Info(msg)
 		return nil, errors.New(msg)
 	}
@@ -192,7 +192,7 @@ func getControlCluster() (cfg *rest.Config, err error) {
 	}
 
 	if cfg == nil {
-		msg := fmt.Sprintf("Fail to get control cluster where pod of cloud-shell backend dp [%v] in namespace [%s] more than one!! please check if valid control cluster in Dd", CloudShellDpName, CloudShellNs)
+		msg := fmt.Sprintf("Failed to get control cluster where pod of cloud-shell backend dp [%v] in namespace [%s] more than one!! please check if valid control cluster in Dd", CloudShellDpName, CloudShellNs)
 		clog.Error(msg)
 		return nil, errors.New(msg)
 	}

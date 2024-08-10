@@ -65,5 +65,5 @@ func GetPivotCluster() (*clusterv1.Cluster, error) {
 		}
 	}
 
-	return nil, fmt.Errorf("can not found pivot cluster")
+	return nil, fmt.Errorf("cannot find pivot cluster")
 }

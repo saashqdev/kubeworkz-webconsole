@@ -2,7 +2,7 @@
 # Use of this source code is governed by a Apache license
 # that can be found in the LICENSE file.
 
-IMG ?= hub.c.163.com/kubeworkz/webconsole:v1.0.0
+IMG ?= hub.docker.com/kubeworkz/webconsole:v1.0.0
 MULTI_ARCH ?= false
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
