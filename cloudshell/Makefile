@@ -2,6 +2,8 @@
 # Use of this source code is governed by a Apache license
 # that can be found in the LICENSE file.
 
+IMG ?= kubeworkz/cloudshell:v1.2.6
+
 base-image:
 	docker buildx build -f ./base/Dockerfile -t ${IMG} --platform=linux/arm64,linux/amd64 . --push
 
