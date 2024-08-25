@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -228,7 +228,7 @@ func connectToContainer(k8sClient *rest.RESTClient, cfg *rest.Config, info *Conn
 	// connect to control service
 	var req *rest.Request
 	if info.IsControlCluster {
-		cmds := []string{KubeWorkzChrootShPath, "-c", info.ClusterName}
+		cmds := []string{KubeworkzChrootShPath, "-c", info.ClusterName}
 		for k, values := range info.Header {
 			for _, value := range values {
 				cmds = append(cmds, "-h")

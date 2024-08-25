@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package utils
 
 import "os"
 
-func GetKubeWorkzSvc() string {
+func GetKubeworkzSvc() string {
 	svc := os.Getenv("KUBEWORKZ_SVC")
 	if svc != "" {
 		return svc

@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ const (
 	LeaderElectionNamespace = "kube-system"
 	NamespaceKey            = "namespace"
 	ClusterKey              = "cluster"
-	KubeWorkzChrootShPath   = "/kubeworkz-chroot.sh"
+	KubeworkzChrootShPath   = "/kubeworkz-chroot.sh"
 	CloudShellLabelKey      = "kubeworkz.io/app"
 )
 

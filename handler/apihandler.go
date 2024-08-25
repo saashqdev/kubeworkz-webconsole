@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 )
 
-const PlatformKubeWorkz = "kubeworkz"
+const PlatformKubeworkz = "kubeworkz"
 
 func init() {
 	clog.Info("webconsole initializing")
@@ -138,9 +138,9 @@ func getConnInfo(request *restful.Request) (*ConnInfo, *errdef.ErrorInfo) {
 	// Audit related info
 	webUser := request.QueryParameter("webuser")
 	platform := request.QueryParameter("platform")
-	// 未传入platform信息时，认为是KubeWorkz页面传入的
+	// 未传入platform信息时，认为是Kubeworkz页面传入的
 	if platform == "" {
-		platform = PlatformKubeWorkz
+		platform = PlatformKubeworkz
 	}
 
 	remoteIP := request.QueryParameter("remote_ip")

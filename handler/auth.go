@@ -1,5 +1,5 @@
 /*
-Copyright 2024 KubeWorkz Authors
+Copyright 2024 Kubeworkz Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ func isAuthValid(request *restful.Request) bool {
 		Transport: &http.Transport{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}},
 		Timeout:   5 * time.Second,
 	}
-	resp, err := c.Post(utils.GetKubeWorkzSvc()+"/api/v1/kube/authorization/access",
+	resp, err := c.Post(utils.GetKubeworkzSvc()+"/api/v1/kube/authorization/access",
 		"application/json", strings.NewReader(string(bytesData)))
 	if err != nil {
 		clog.Error(err.Error())
